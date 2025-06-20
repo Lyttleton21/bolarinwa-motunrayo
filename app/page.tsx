@@ -5,13 +5,14 @@ import {
   ContainerScroll,
 } from "@/components/hero-gallery-scroll-animation";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const IMAGES = [
-  "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D",
-  "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww",
+  "https://plus.unsplash.com/premium_photo-1686920245013-365ae71428a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpbGRob29kfGVufDB8fDB8fHww",
+  "https://plus.unsplash.com/premium_photo-1663088600032-bc05c474ef79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNoaWxkaG9vZHxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1460788150444-d9dc07fa9dba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNoaWxkaG9vZHxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNoaWxkaG9vZHxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1591776353202-aed91f04fb81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNoaWxkaG9vZHxlbnwwfHwwfHx8MA%3D%3D",
 ];
 
 export default function Home() {
@@ -34,20 +35,20 @@ export default function Home() {
 
       <ContainerScale className="relative z-10 text-center">
         <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-slate-800 ">
-          Bolarinwa-Motunrayo
+          Bolarinwa Motunrayo
         </h1>
         <p className="my-6 max-w-xl text-sm text-slate-700 md:text-base">
-          Hey, i'm Bolarinwa-Motunrayo, a early childhood educator.
+          Hello, i'm Bolarinwa-Motunrayo, an aspiring educator.
         </p>
         <div className="flex items-center justify-center gap-4">
           <Button className="bg-indigo-500 px-4 py-2 font-medium hover:bg-indigo-400">
-            Get Started
+            <Link href="/about">About Me</Link>
           </Button>
           <Button
             variant="link"
             className="bg-transparent px-4 py-2 font-medium"
           >
-            About Me
+            Project
           </Button>
         </div>
       </ContainerScale>
