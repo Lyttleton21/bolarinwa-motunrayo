@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import tunrayoImage from "@/public/tunrayo-img.jpg";
+import tunrayoImage from "@/public/Tunrayo_AI.jpg";
 
 export default function About() {
   return (
