@@ -6,6 +6,7 @@ import {
 } from "@/components/hero-gallery-scroll-animation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CarouselDApiDemo } from "@/components/project";
 
 const IMAGES = [
   "https://plus.unsplash.com/premium_photo-1686920245013-365ae71428a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpbGRob29kfGVufDB8fDB8fHww",
@@ -54,6 +55,10 @@ export default function Home() {
           </div>
         </ContainerScale>
       </ContainerScroll>
+
+      <div className="w-full">
+        <CarouselDApiDemo />
+      </div>
     </>
   );
 }
