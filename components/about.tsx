@@ -37,7 +37,7 @@ export default function About() {
         <hr className="my-3" />
         <div className="my-5">
           <div>
-            <h3 className="text-2xl font-semibold tracking-tight">Profie</h3>
+            <h3 className="text-2xl font-semibold tracking-tight">Profile</h3>
             <p className="text-muted-foreground text-xl">
               I am an aspiring educator deeply passionate about early childhood
               education and curriculum development. I am committed to nurturing
