@@ -1,141 +1,205 @@
 "use client";
 
-import * as React from "react";
-import { VariantProps, cva } from "class-variance-authority";
-import {
-  HTMLMotionProps,
-  MotionValue,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { Circle } from "lucide-react";
+import Link from "next/link";
 
-const bentoGridVariants = cva(
-  "relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right",
-  {
-    variants: {
-      variant: {
-        default: `
-          grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]
-          [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3
-          [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block
-          [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block
-          [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3
-          [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3
-        `,
-        threeCells: `
-          grid-cols-2 grid-rows-2
-          [&>*:first-child]:col-span-2
-      `,
-        fourCells: `
-        grid-cols-3 grid-rows-2
-        [&>*:first-child]:col-span-1
-        [&>*:nth-child(2)]:col-span-2
-        [&>*:nth-child(3)]:col-span-2
-      `,
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-);
-
-interface ContainerScrollContextValue {
-  scrollYProgress: MotionValue<number>;
-}
-const ContainerScrollContext = React.createContext<
-  ContainerScrollContextValue | undefined
->(undefined);
-function useContainerScrollContext() {
-  const context = React.useContext(ContainerScrollContext);
-  if (!context) {
-    throw new Error(
-      "useContainerScrollContext must be used within a ContainerScroll Component"
-    );
-  }
-  return context;
-}
-const ContainerScroll = ({
-  children,
+function ElegantShape({
   className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => {
-  const scrollRef = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollRef,
-  });
+  delay = 0,
+  width = 400,
+  height = 100,
+  rotate = 0,
+  gradient = "from-white/[0.08]",
+}: {
+  className?: string;
+  delay?: number;
+  width?: number;
+  height?: number;
+  rotate?: number;
+  gradient?: string;
+}) {
   return (
-    <ContainerScrollContext.Provider value={{ scrollYProgress }}>
-      <div
-        ref={scrollRef}
-        className={cn("relative min-h-screen w-full", className)}
-        {...props}
-      >
-        {children}
-      </div>
-    </ContainerScrollContext.Provider>
-  );
-};
-
-const BentoGrid = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>
->(({ variant, className, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(bentoGridVariants({ variant }), className)}
-      {...props}
-    />
-  );
-});
-BentoGrid.displayName = "BentoGrid";
-
-const BentoCell = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
-  ({ className, style, ...props }, ref) => {
-    const { scrollYProgress } = useContainerScrollContext();
-    const translate = useTransform(scrollYProgress, [0.1, 0.9], ["-35%", "0%"]);
-    const scale = useTransform(scrollYProgress, [0, 0.9], [0.5, 1]);
-
-    return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: -150,
+        rotate: rotate - 15,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        rotate: rotate,
+      }}
+      transition={{
+        duration: 2.4,
+        delay,
+        ease: [0.23, 0.86, 0.39, 0.96],
+        opacity: { duration: 1.2 },
+      }}
+      className={cn("absolute", className)}
+    >
       <motion.div
-        ref={ref}
-        className={className}
-        style={{ translate, scale, ...style }}
-        {...props}
-      ></motion.div>
-    );
-  }
-);
-BentoCell.displayName = "BentoCell";
-
-const ContainerScale = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
-  ({ className, style, ...props }, ref) => {
-    const { scrollYProgress } = useContainerScrollContext();
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-    const position = useTransform(scrollYProgress, (pos) =>
-      pos >= 0.6 ? "absolute" : "fixed"
-    );
-    return (
-      <motion.div
-        ref={ref}
-        className={cn("left-1/2 top-1/2  size-fit", className)}
-        style={{
-          translate: "-50% -50%",
-          scale,
-          position,
-          opacity,
-          ...style,
+        animate={{
+          y: [0, 15, 0],
         }}
-        {...props}
-      />
-    );
-  }
-);
-ContainerScale.displayName = "ContainerScale";
-export { ContainerScroll, BentoGrid, BentoCell, ContainerScale };
+        transition={{
+          duration: 12,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+        style={{
+          width,
+          height,
+        }}
+        className="relative"
+      >
+        <div
+          className={cn(
+            "absolute inset-0 rounded-full",
+            "bg-gradient-to-r to-transparent",
+            gradient,
+            "backdrop-blur-[2px] border-2 border-white/[0.15]",
+            "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+            "after:absolute after:inset-0 after:rounded-full",
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+          )}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function HeroGeometric({
+  badge = "Design Collective",
+  title1 = "Elevate Your Digital Vision",
+  title2 = "Crafting Exceptional Websites",
+}: {
+  badge?: string;
+  title1?: string;
+  title2?: string;
+}) {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5 + i * 0.2,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
+
+  return (
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
+
+      <div className="absolute inset-0 overflow-hidden">
+        <ElegantShape
+          delay={0.3}
+          width={600}
+          height={140}
+          rotate={12}
+          gradient="from-indigo-500/[0.15]"
+          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+        />
+
+        <ElegantShape
+          delay={0.5}
+          width={500}
+          height={120}
+          rotate={-15}
+          gradient="from-rose-500/[0.15]"
+          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+        />
+
+        <ElegantShape
+          delay={0.4}
+          width={300}
+          height={80}
+          rotate={-8}
+          gradient="from-violet-500/[0.15]"
+          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+        />
+
+        <ElegantShape
+          delay={0.6}
+          width={200}
+          height={60}
+          rotate={20}
+          gradient="from-amber-500/[0.15]"
+          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+        />
+
+        <ElegantShape
+          delay={0.7}
+          width={150}
+          height={40}
+          rotate={-25}
+          gradient="from-cyan-500/[0.15]"
+          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+        />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div custom={1} initial="hidden" animate="visible">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                {title1}
+              </span>
+              <br />
+              <span
+                className={cn(
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 "
+                )}
+              >
+                {title2}
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.div custom={2} initial="hidden" animate="visible">
+            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+              I am an aspiring educator deeply passionate about early childhood
+              education and curriculum development.
+            </p>
+          </motion.div>
+
+          <div className="flex justify-evenly items-center">
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            >
+              <Circle className="h-2 w-2 fill-rose-500/80" />
+              <span className="text-sm text-white/60 tracking-wide">
+                <Link href={"/about"}>{badge}</Link>
+              </span>
+            </motion.div>
+
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            >
+              <Circle className="h-2 w-2 fill-primary" />
+              <span className="text-sm text-white/60 tracking-wide cursor-pointer">
+                Lesson Note
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+    </div>
+  );
+}
+
+export { HeroGeometric };
