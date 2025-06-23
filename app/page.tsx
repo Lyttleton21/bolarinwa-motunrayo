@@ -11,7 +11,7 @@ export default function Home() {
       />
 
       <h3 className="scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance my-1.5">
-        Programmed learning paradigm
+        Programmed Learning Paradigm
       </h3>
       <CarouselDemo />
     </>
