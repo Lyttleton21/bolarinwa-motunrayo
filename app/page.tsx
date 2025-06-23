@@ -10,6 +10,9 @@ export default function Home() {
         title2="Deborah"
       />
 
+      <h3 className="scroll-m-20 text-center text-4xl font-bold tracking-tight text-balance my-1.5">
+        Programmed learning paradigm
+      </h3>
       <CarouselDemo />
     </>
   );

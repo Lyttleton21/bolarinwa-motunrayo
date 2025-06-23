@@ -25,20 +25,16 @@ export default function LessonNote() {
       Teacher’s Name: Bolarinwa Motunrayo Deborah <br />
       Student-Teacher <br />
       Average Class Size: 25 <br />
-      1. <h5>PERFORMANCE OBJECTIVES</h5> <br />
-      By the end of the lesson, the pupils should be able to:
-      <ol>
-        <li> Define drug abuse</li>
-        <li>Mention examples of drugs that are commonly abused</li>
-        <li>State at least three consequences of drug abuse</li>
-      </ol>
-      2. RATIONALE The lesson is designed to help pupils understand the dangers
-      of drug abuse in order to make informed decisions, resist peer pressure,
-      and promote a healthy lifestyle in their communities. --- 3. PREVIOUS
-      KNOWLEDGE Pupils have previously discussed the importance of good health
-      and hygiene. --- 4. INSTRUCTIONAL MATERIALS Chart showing different types
-      of drugs Flashcards (with names and effects of drugs) Short video/skit on
-      dangers of drug abuse Whiteboard and marker --- 5. CONTENT Meaning of Drug
+      (1) PERFORMANCE OBJECTIVES: By the end of the lesson, the pupils should be
+      able to: (i) Define drug abuse (ii)Mention examples of drugs that are
+      commonly abused (iii)State at least three consequences of drug abuse (2)
+      RATIONALE The lesson is designed to help pupils understand the dangers of
+      drug abuse in order to make informed decisions, resist peer pressure, and
+      promote a healthy lifestyle in their communities. (3) PREVIOUS KNOWLEDGE
+      Pupils have previously discussed the importance of good health and
+      hygiene. (4) INSTRUCTIONAL MATERIALS Chart showing different types of
+      drugs Flashcards (with names and effects of drugs) Short video/skit on
+      dangers of drug abuse Whiteboard and marker (5) CONTENT Meaning of Drug
       Abuse: Drug abuse is the wrong or harmful use of drugs. Examples include:
       Taking medicine without a doctor’s instruction Using someone else’s
       medicine Taking hard drugs like cocaine, tramadol, or marijuana Examples
