@@ -4,6 +4,18 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import Link from "next/link";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "./ui/button";
+import LessonNote from "./LessonNote";
 
 function ElegantShape({
   className,
@@ -189,9 +201,25 @@ function HeroGeometric({
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
             >
               <Circle className="h-2 w-2 fill-primary" />
-              <span className="text-sm text-white/60 tracking-wide cursor-pointer">
+              {/* <span className="text-sm text-white/60 tracking-wide cursor-pointer">
                 Lesson Note
-              </span>
+              </span> */}
+              <Drawer>
+                <DrawerTrigger className="text-sm text-white/60 tracking-wide cursor-pointer">
+                  Lesson Note
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>LESSON NOTE</DrawerTitle>
+                    <LessonNote />
+                  </DrawerHeader>
+                  {/* <DrawerFooter>
+                    <DrawerClose>
+                      <Button variant="outline">Close</Button>
+                    </DrawerClose>
+                  </DrawerFooter> */}
+                </DrawerContent>
+              </Drawer>
             </motion.div>
           </div>
         </div>
