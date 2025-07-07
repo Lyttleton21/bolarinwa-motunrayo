@@ -200,6 +200,18 @@ function HeroGeometric({
               animate="visible"
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
             >
+              <Circle className="h-2 w-2 fill-amber-300" />
+              <span className="text-sm text-white/60 tracking-wide">
+                <Link href={"/experience"}>My Experience</Link>
+              </span>
+            </motion.div>
+
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            >
               <Circle className="h-2 w-2 fill-primary" />
               {/* <span className="text-sm text-white/60 tracking-wide cursor-pointer">
                 Lesson Note

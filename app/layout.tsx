@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bolarinwa-Motunrayo | Early Childhood Educator",
+  title: "Bolarinwa-Motunrayo Deborah",
   description: "Hey, i'm Bolarinwa-Motunrayo, a early childhood educator.",
 };
 
