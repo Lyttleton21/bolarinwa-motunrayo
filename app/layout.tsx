@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Bolarinwa-Motunrayo Deborah",
-  description: "Hey, i'm Bolarinwa-Motunrayo, a early childhood educator.",
+  description: "Hey, i'm Bolarinwa-Motunrayo, an aspiring educator.",
 };
 
 export default function RootLayout({
