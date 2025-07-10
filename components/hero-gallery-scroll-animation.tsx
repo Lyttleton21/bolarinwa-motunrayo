@@ -181,7 +181,7 @@ function HeroGeometric({
             </p>
           </motion.div>
 
-          <div className="flex justify-evenly items-center">
+          <div className="flex md:justify-evenly items-center">
             <motion.div
               custom={0}
               initial="hidden"
@@ -202,7 +202,7 @@ function HeroGeometric({
             >
               <Circle className="h-2 w-2 fill-amber-300" />
               <span className="text-sm text-white/60 tracking-wide">
-                <Link href={"/experience"}>My Experience</Link>
+                <Link href={"/experience"}>Experience</Link>
               </span>
             </motion.div>
 
@@ -213,25 +213,9 @@ function HeroGeometric({
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
             >
               <Circle className="h-2 w-2 fill-primary" />
-              {/* <span className="text-sm text-white/60 tracking-wide cursor-pointer">
-                Lesson Note
-              </span> */}
-              <Drawer>
-                <DrawerTrigger className="text-sm text-white/60 tracking-wide cursor-pointer">
-                  Lesson Note
-                </DrawerTrigger>
-                <DrawerContent>
-                  <DrawerHeader>
-                    <DrawerTitle>LESSON NOTE</DrawerTitle>
-                    <LessonNote />
-                  </DrawerHeader>
-                  {/* <DrawerFooter>
-                    <DrawerClose>
-                      <Button variant="outline">Close</Button>
-                    </DrawerClose>
-                  </DrawerFooter> */}
-                </DrawerContent>
-              </Drawer>
+              <span className="text-sm text-white/60 tracking-wide">
+                <Link href={"/presentation"}>Presentation</Link>
+              </span>
             </motion.div>
           </div>
         </div>
