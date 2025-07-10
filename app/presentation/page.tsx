@@ -5,7 +5,7 @@ export default function page() {
     <main>
       <div>
         <iframe
-          src="https://docs.google.com/presentation/d/1Ysuy8IcR88FiufY3UUXpNhcg9PXj8Au-/edit?usp=drivesdk&ouid=102493840241668193229&rtpof=true&sd=true"
+          src="https://1drv.ms/p/s!ApeTqlsLdI1Zghi8gwtppQ9hHWG_"
           width="100%"
           height="800px"
         />
